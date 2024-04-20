@@ -29,7 +29,7 @@ CSRF_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'final2work.pythonanywhere.com',
+    'final3work.pythonanywhere.com',
 ]
 
 INTERNAL_IPS = [
@@ -84,18 +84,23 @@ WSGI_APPLICATION = 'final_work.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 DATABASES = {
-    'default': {
-        'ENGINE':'django.db.backends.mysql',
-        'NAME': 'final2work$default',
-        'USER': 'final2work',
-        'PASSWORD':'supermaks2022',
-        'HOST': 'final2work.mysql.pythonanywhere-services.com',
-        'OPTIONS': { 'init_command': "SET NAMES 'utf8mb4';SET sql_mode='STRICT_TRANS_TABLES'", 'charset': 'utf8mb4',
-        }
-    }
-}
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': BASE_DIR / 'db.sqlite3',
+     }
+ }
+##DATABASES = {
+##    'default': {
+##        'ENGINE':'django.db.backends.mysql',
+##        'NAME': 'final2work$default',
+##        'USER': 'final2work',
+##        'PASSWORD':'supermaks2022',
+##        'HOST': 'final2work.mysql.pythonanywhere-services.com',
+##        'OPTIONS': { 'init_command': "SET NAMES 'utf8mb4';SET sql_mode='STRICT_TRANS_TABLES'", 'charset': 'utf8mb4',
+##        }
+##    }
+##}
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
