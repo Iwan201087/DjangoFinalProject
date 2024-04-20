@@ -24,6 +24,8 @@ SECRET_KEY = 'django-insecure-e(1@#lskgo))omx9vini4oigd4ksaczm()@y@k6-#^fefxy&ix
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+SESSION_COOKIE_SECURE = True 
+CSRF_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -82,13 +84,6 @@ WSGI_APPLICATION = 'final_work.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 
 # Password validation
