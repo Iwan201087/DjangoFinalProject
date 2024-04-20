@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load bootstrap3 %}
+<html lang="en">
+<head>
+    <script src="{% bootstrap_jquery_url %}"></script>
+    {% bootstrap_javascript %}
+    {% bootstrap_css %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Рецепты блюд{% endblock %}</title>
+    <style>
+        body {
+            background: #c7b39b url(./images/bg.jpg); 
+            color: #1b1616; 
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to bottom,  #eff2a1 0%,#c5cd76 100%);   
+            }
+        h1 {color: #0c0c0c;}
+        p {color: #262627;}
+        footer {
+            margin-top: auto;
+          }
+        .container {
+            margin: auto;
+            height: auto;
+            width: 900px;
+         }
+    </style>
+    {% if 'javascript_in_head'|bootstrap_setting %}{% bootstrap_javascript jquery=True %}{% endif %}
+
+</head>
+<body>
+    
+    <header bac class="bg-success">
+        <div class="container">
+            <h1>Итоговая контрольной работой по курсу "Фреймворк Django (семинары)"</h1>
+            <div>Приветствую Вас на моем сайте. Данный сайт является итоговой работой по курсу "Фреймворк Django (семинары)" для технологической специализации "Разработчик — Веб-разработка на Python.</div>
+
+            <h3>Рецепты для наших любимых пользователей</h3>
+            
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{% url 'index' %}">Главная</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'add_recipe' %}">Добавить новый рецепт</a>
+                    </li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'logout' %}">Выйти</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{% url 'login' %}">Войти</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'registration' %}">Регистрация</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p class="m-0">&copy; Итоговая работа по DJANGO. Автор Иван Юдицкий. Все права защищены 2024</p>
+        </div>
+    </footer>
+
+</body>
+</html>

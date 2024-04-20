@@ -1,0 +1,6 @@
+/static/
+*.sqlite3
+*.log
+*.pyc
+*_venv
+*/migrations/

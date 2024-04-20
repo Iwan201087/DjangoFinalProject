@@ -1,0 +1,26 @@
+{% extends "base.html" %} 
+
+{% block title %} 
+    Главная 
+{% endblock title %} 
+
+{% block content %}
+    <div>
+        {% for recipe in recipies %}
+            <li class="list-group-item">
+                <div>
+                    <a href="{% url 'recipe_detail' recipe.id %}">{{ recipe.title }}</a> 
+                    <div>
+                        <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="img-fluid" width="20%">
+                    </div>
+                    <div>
+                        <p>Краткое описание рецепта: <br>{{ recipe.description | truncatechars:150 }}</p>
+                    </div>
+                    <div>
+                        Автор рецепта : {{ recipe.author }}
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </div>
+{% endblock %}

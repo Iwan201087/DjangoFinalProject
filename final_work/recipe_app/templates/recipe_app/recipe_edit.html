@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Редактировать рецепт{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Редактировать рецепт</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.title.label_tag }}
+            {{ form.title }}
+        </div>
+        <div class="form-group">
+            {{ form.description.label_tag }}
+            {{ form.description }}
+        </div>
+        <div class="form-group">
+            {{ form.cooking_method.label_tag }}
+            {{ form.cooking_method }}
+        </div>
+        <div class="form-group">
+            {{ form.cooking_time.label_tag }}
+            {{ form.cooking_time }}
+        </div>
+        <div class="form-group">
+            {{ form.cooking_product.label_tag }}
+            {{ form.cooking_product }}
+        </div>
+        <div class="form-group">
+            {{ form.image.label_tag }}
+            {{ form.image }}
+        </div>
+        <div class="form-group">
+            {{ form.category.label_tag }}
+            {{ form.category }}
+        </div>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+</div>
+{% endblock %}
